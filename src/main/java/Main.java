@@ -2,15 +2,16 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import javax.xml.validation.Validator;
-
 public class Main {
     public static void main(String[] args) {
-        carsRegistration();
+        ArrayList<Car> cars = carsRegistration();
+        System.out.println("Машины зарегистрированы. Гонка начинается!");
+        String winner = Race.distance(cars);
+        System.out.println("Самая быстрая машина: " + winner);
 
     }
 
-    public static void carsRegistration() {
+    public static ArrayList<Car> carsRegistration() {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Car> cars = new ArrayList<>();
 
@@ -37,5 +38,6 @@ public class Main {
                 }
             }
         }
+        return cars;
     }
 }
